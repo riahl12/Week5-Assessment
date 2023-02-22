@@ -5,6 +5,7 @@
  */
 package model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ public class Pets {
 	private String petName;
 	@Column(name="PetSpecies")
 	private String petSpecies;
+	
 	
 	public Pets() {
 		super();
@@ -57,6 +59,11 @@ public class Pets {
 		this.petSpecies = petSpecies;
 	}
 	
+	@Override
+	public String toString() {
+		return "Pets [petId=" + petId + ", petName=" + petName + ", petSpecies=" + petSpecies + "]";
+	}
+
 	public String returnPetDetails() {
 		return this.petName + ": " + this.petSpecies;
 	}
