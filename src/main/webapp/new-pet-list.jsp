@@ -6,9 +6,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Create a new Pet List</title>
+<script>
+	function validateForm(){
+		if(document.owner.listName.value == ""){
+			alert("Please provide a name for your list!");
+			document.owner.listName.focus();
+			return false;
+		}
+		if(document.owner.firstName.value == ""){
+			alert("Please enter a first name!");
+			document.owner.firstName.focus();
+			return false;
+		}
+		if(document.owner.lastName.value == ""){
+			alert("Please enter a last name!");
+			document.owner.lastName.focus();
+			return false;
+		}
+		return(true);
+	}
+</script>
 </head>
 <body>
-<form action="createNewPetListServlet" method="post">
+<form action="createNewPetListServlet" name="owner" onsubmit="return(validateForm());" method="post">
 List Name: <input type="text" name="listName"><br/>
 Owner First Name: <input type="text" name="firstName"><br/>
 Owner Last Name: <input type="text" name="lastName"><br/>

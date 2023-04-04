@@ -3,10 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Add a Pet</title>
+<script>
+	function validateAddingPet(){
+		if(document.addPet.petName.value == ""){
+			alert("Please enter the pets name!");
+			document.addPet.petName.focus();
+			return false;
+		}
+		if(document.addPet.petSpecies.value == ""){
+			alert("Please enter the pets species!");
+			document.addPet.petSpecies.focus();
+			return false;
+		}
+		return(true);
+	}
+</script>
 </head>
 <body>
 <h1>Add Pet:</h1>
-	<form action="addItemServlet" method="post">
+	<form action="addItemServlet" name="addPet" onsubmit="return(validateAddingPet());" method="post">
 		Pet Name:<input type="text" name="petName">
 		Pet Species:<input type="text" name="petSpecies">
 		<input type="submit" value="Add Pet">
